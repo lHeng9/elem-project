@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>hello world</h1>
+  <div id="box">
   </div>
 </template>
 
@@ -11,4 +10,9 @@ export default {
 </script>
 
 <style scoped>
+#box{
+  width: 100px;
+  height: 100px;
+  background: pink
+}
 </style>
