@@ -1,5 +1,6 @@
 <template>
   <div id="box">
+    路哼
   </div>
 </template>
 
@@ -10,9 +11,9 @@ export default {
 </script>
 
 <style scoped>
-#box{
+#box {
   width: 100px;
   height: 100px;
-  background: pink
+  background: pink;
 }
 </style>
