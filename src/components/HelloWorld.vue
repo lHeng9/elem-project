@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    路哼
+    
   </div>
 </template>
 
