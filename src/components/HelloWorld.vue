@@ -1,6 +1,8 @@
 <template>
   <div id="box">
-    
+    <el-row>
+      <el-button type="primary">测试 element-ui</el-button>
+    </el-row>
   </div>
 </template>
 
