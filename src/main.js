@@ -6,7 +6,10 @@ import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import flex from 'raziel-flex'
-import './lib/mui/css/mui.css'
+import 'vant/lib/index.css';
+
+import { Swipe, SwipeItem } from "vant";
+Vue.use(Swipe).use(SwipeItem);
 
 
 flex(600)

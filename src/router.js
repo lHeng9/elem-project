@@ -23,6 +23,12 @@ export default new Router({
 
             component: () =>
                 import ( /* webpackChunkName: "about" */ './views/About.vue')
+        }, {
+            path: '/msite',
+            name: 'msite',
+
+            component: () =>
+                import ( /* webpackChunkName: "about" */ './views/Msite.vue')
         }
     ],
     linkActiveClass: 'my-active'
