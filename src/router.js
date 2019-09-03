@@ -11,11 +11,18 @@ export default new Router({
             component: Home
         },
         {
+            path: '/city/:id',
+            name: 'city',
+
+            component: () =>
+                import ( /* webpackChunkName: "about" */ './views/City.vue')
+
+        }, {
             path: '/about',
             name: 'about',
 
             component: () =>
-                import( /* webpackChunkName: "about" */ './views/About.vue')
+                import ( /* webpackChunkName: "about" */ './views/About.vue')
         }
     ],
     linkActiveClass: 'my-active'

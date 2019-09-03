@@ -9,10 +9,14 @@
         定位不准时，请在城市列表中选择
       </span>
     </div>
-    <div class="guess_city">
-      <span>{{city}}</span>
+    <router-link
+      :to="'/city/'+city.id"
+      tag="div"
+      class="guess_city"
+    >
+      <span>{{city.name}}</span>
       <i class="el-icon-arrow-right"></i>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -20,13 +24,13 @@
 export default {
   data() {
     return {
-      city: ""
+      city: {}
     };
   },
   created() {
     this.$axios.get("http://elm.cangdu.org/v1/cities?type=guess").then(res => {
       console.log(res.data);
-      this.city = res.data.name;
+      this.city = res.data;
     });
   }
 };
@@ -36,6 +40,7 @@ export default {
 .nav {
   margin-bottom: 0.25rem;
   background-color: #fff;
+  margin-top: 1.5rem;
 }
 .city_tip {
   background-color: #fff;
