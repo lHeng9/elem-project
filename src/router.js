@@ -15,7 +15,8 @@ export default new Router({
             name: 'about',
 
             component: () =>
-                import ( /* webpackChunkName: "about" */ './views/About.vue')
+                import( /* webpackChunkName: "about" */ './views/About.vue')
         }
-    ]
+    ],
+    linkActiveClass: 'my-active'
 })
