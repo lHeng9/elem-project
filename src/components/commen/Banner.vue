@@ -6,7 +6,10 @@
       class="ban"
     >
       <van-swipe-item class="swp">
-        <li v-for="item in 8">
+        <li
+          v-for="item in 8"
+          :key="item"
+        >
           <div class="item">
             <img
               src="https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg"
@@ -17,7 +20,10 @@
         </li>
       </van-swipe-item>
       <van-swipe-item class="swp">
-        <li v-for="item in 8">
+        <li
+          v-for="item in 8"
+          :key="item"
+        >
           <div class="item">
             <img
               src="https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg"

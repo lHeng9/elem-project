@@ -1,7 +1,9 @@
 <template>
+  <div>
 
-  <Banner></Banner>
-  <Shop></Shop>
+    <Banner></Banner>
+    <Shop></Shop>
+  </div>
 </template>
 
 <script>
@@ -11,7 +13,6 @@ export default {
   components: {
     Banner,
     Shop
-
   }
 };
 </script>
