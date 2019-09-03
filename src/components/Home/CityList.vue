@@ -6,11 +6,13 @@
       :key="index"
     >
       <h4>{{item}}</h4>
-      <li
-        class="ellipsis"
+      <router-link
+        tag="li"
         v-for="(it) in cityList[item]"
+        class="ellipsis"
         :key="it.id"
-      >{{it.name}}</li>
+        :to="'/city/'+it.id"
+      >{{it.name}}</router-link>
     </ul>
   </div>
 </template>

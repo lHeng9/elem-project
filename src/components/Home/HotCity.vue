@@ -2,10 +2,12 @@
   <div class="hot">
     <ul class="clear">
       <h4>热门城市</h4>
-      <li
+      <router-link
+        tag="li"
         v-for="item in hotCity"
         :key="item.id"
-      >{{item.name}}</li>
+        :to="'/city/'+item.id"
+      >{{item.name}}</router-link>
     </ul>
   </div>
 </template>

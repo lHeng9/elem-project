@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <!-- <router-link></router-link> -->
+
+    <Header-m></Header-m>
+    <router-view></router-view>
     <footGuide></footGuide>
+
   </div>
 </template>
 
 
 <script>
 import footGuide from "./components/footer/footGuide";
+import HeaderM from "./components/header/Header";
 export default {
   components: {
-    footGuide
+    footGuide,
+    HeaderM
   }
 };
 </script>
@@ -24,8 +29,8 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  font-size: 32px;
+  /* overflow: hidden; */
+  /* font-size: 32px; */
 }
 
 .my-active {
