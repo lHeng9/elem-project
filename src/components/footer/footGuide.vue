@@ -40,7 +40,7 @@ export default {};
   width: 100%;
   z-index: 99;
   padding: 0.1rem 0;
-  border-top: 1px solid #cccccc;
+  border-top: 0.0313rem solid #cccccc;
   background-color: #fff;
 }
 
@@ -67,6 +67,5 @@ span {
 
 .font1 {
   color: #666;
-  /* visibility: hidden; */
 }
 </style>
