@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+
     <Header-m></Header-m>
     <router-view></router-view>
     <FootGuide></FootGuide>
+
   </div>
 </template>
 

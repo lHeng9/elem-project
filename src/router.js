@@ -6,20 +6,28 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/city/:id',
-            name: 'city',
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
+        path: '/city/:id',
+        name: 'city',
+
 
             component: () =>
                 import('./views/City.vue')
 
-        }, {
-            path: '/about',
-            name: 'about',
+
+    },
+
+    {
+        path: '/cart',
+        name: 'cart',
+
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Cart.vue')
+    }
 
             component: () =>
 
