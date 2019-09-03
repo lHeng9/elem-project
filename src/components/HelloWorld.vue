@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 #box {
-  width: 100px;
+  width: 6.25rem;
   height: 100px;
   background: pink;
 }
