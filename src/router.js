@@ -15,15 +15,22 @@ export default new Router({
             name: 'city',
 
             component: () =>
-                import ( /* webpackChunkName: "about" */ './views/City.vue')
+                import('./views/City.vue')
 
         }, {
             path: '/about',
             name: 'about',
 
             component: () =>
-                import ( /* webpackChunkName: "about" */ './views/About.vue')
-        }
+                import('./views/About.vue')
+        }, {
+            path: '/msite',
+            name: 'msite',
+
+            component: () =>
+                import('./views/Msite.vue')
+        },
+
     ],
     linkActiveClass: 'my-active'
 })

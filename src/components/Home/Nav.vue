@@ -1,19 +1,10 @@
 <template>
   <div class="nav">
     <div class="city_tip">
-      <span>
-
-        当前定位城市：
-      </span>
-      <span class="city_tip-rt">
-        定位不准时，请在城市列表中选择
-      </span>
+      <span>当前定位城市：</span>
+      <span class="city_tip-rt">定位不准时，请在城市列表中选择</span>
     </div>
-    <router-link
-      :to="'/city/'+city.id"
-      tag="div"
-      class="guess_city"
-    >
+    <router-link :to="'/city/'+city.id" tag="div" class="guess_city">
       <span>{{city.name}}</span>
       <i class="el-icon-arrow-right"></i>
     </router-link>
@@ -40,7 +31,6 @@ export default {
 .nav {
   margin-bottom: 0.25rem;
   background-color: #fff;
-  margin-top: 1.5rem;
 }
 .city_tip {
   background-color: #fff;

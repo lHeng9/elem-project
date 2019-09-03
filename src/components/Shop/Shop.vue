@@ -1,0 +1,176 @@
+<template>
+  <div>
+    <el-row class="card" v-for="shop in shopList" :key="shop.id">
+      <el-col :span="5">
+        <img :src="'//elm.cangdu.org/img/' + shop.image_path" />
+      </el-col>
+      <el-col :span="19">
+        <div class="box1">
+          <h4 class="title">{{ shop.name }}</h4>
+          <span class="supports">保准票</span>
+        </div>
+
+        <div class="box2">
+          <div class="subbox">
+            <el-rate
+              :value="shop.rating"
+              disabled
+              disabled-void-color="#cccccc"
+              show-score
+              text-color="#ff6000"
+              score-template="{value}"
+              class="star"
+            ></el-rate>
+            <span class="order_num">月售106单</span>
+          </div>
+          <div>
+            <span class="delivery_left">蜂鸟专送</span>
+            <span class="delivery_right">准时达</span>
+          </div>
+        </div>
+
+        <div class="box3">
+          <p
+            class="fee"
+          >￥{{shop.float_minimum_order_amount}}元起送 / 配送费约￥{{ shop.float_delivery_fee }}</p>
+          <p>
+            <span class="p1">{{ shop.distance }} /</span>
+            <span class="p2">{{ shop.order_lead_time }}</span>
+          </p>
+        </div>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      shopList: []
+    };
+  },
+  methods: {
+    Handle() {
+      var stars = document.getElementsByClassName("el-rate__icon");
+      for (const star of stars) {
+        star.style.fontSize = "0.3rem";
+        star.style.margin = "0";
+      }
+      var texts = document.getElementsByClassName("el-rate__text");
+      for (const text of texts) {
+        text.style.fontSize = "0.3rem";
+      }
+    },
+    getShop() {
+      axios
+        .get("https://elm.cangdu.org/shopping/restaurants", {
+          params: {
+            latitude: 31.22967,
+            longitude: 121.4762
+          }
+        })
+        .then(res => {
+          this.shopList = res.data;
+          console.log(this.shopList);
+          // this.Handle();
+          setTimeout(() => {
+            this.Handle();
+          }, 1);
+        })
+        .catch(err => {
+          console.log(res.response.data);
+        });
+    }
+  },
+  created() {
+    this.getShop();
+  }
+};
+</script>
+
+<style scoped>
+.el-rate__text {
+  font-size: 1px;
+}
+.card {
+  padding: 0.4375rem 0.25rem;
+  border-bottom: 0.0313rem solid #cccccc;
+}
+
+img {
+  width: 1.6875rem;
+  margin: 0 0.25rem 0 0;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333333;
+  width: 5.3125rem;
+  font-size: 0.4063rem;
+}
+
+.supports {
+  color: #999;
+  font-size: 0.3rem;
+  letter-spacing: 0.1rem;
+}
+
+.box1,
+.box2,
+.box3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fee {
+  font-size: 0.3125rem;
+  color: #666;
+}
+
+.delivery_left {
+  color: #ffffff;
+  background-color: #3190e8;
+  font-size: 0.3rem;
+  margin: 0 0.05rem 0 0;
+  padding: 0.025rem 0.05rem 0;
+}
+
+.delivery_right {
+  color: #3190e8;
+  border: 0.0313rem solid #3190e8;
+  font-size: 0.3rem;
+  padding: 0.025rem 0.05rem 0;
+}
+
+.order_num {
+  font-size: 0.3rem;
+  color: #666;
+  margin-top: 0.1rem;
+  margin-left: 0.1rem;
+}
+
+.p1 {
+  color: #999;
+  font-size: 0.3125rem;
+}
+
+.p2 {
+  color: #3190e8;
+  font-size: 0.3125rem;
+}
+
+.subbox {
+  display: flex;
+}
+
+.title::before {
+  content: "品牌";
+  font-size: 0.3125rem;
+  background-color: #ffd930;
+  padding: 0 0.0625rem;
+  margin: 0 0.125rem 0 0;
+}
+</style>
