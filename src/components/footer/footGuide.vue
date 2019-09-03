@@ -67,5 +67,6 @@ span {
 
 .font1 {
   color: #666;
+  /* visibility: hidden; */
 }
 </style>
