@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-link></router-link>
+    <!-- <router-link></router-link> -->
     <footGuide></footGuide>
   </div>
 </template>
@@ -30,6 +30,5 @@ body {
 
 .my-active {
   color: #409eff;
-
 }
 </style>

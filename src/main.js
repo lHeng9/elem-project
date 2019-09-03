@@ -6,6 +6,8 @@ import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import flex from 'raziel-flex'
+import './lib/mui/css/mui.css'
+
 
 flex(600)
 Vue.use(ElementUI)
