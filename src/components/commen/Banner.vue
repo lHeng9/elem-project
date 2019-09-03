@@ -57,6 +57,7 @@ export default {
 <style scoped>
 .banner {
   width: 10rem;
+  margin-bottom: 0.25rem;
 }
 .ban {
   width: 10rem;

@@ -6,32 +6,34 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
-        path: '/',
-        name: 'home',
-        component: Home
-    },
-    {
-        path: '/city/:id',
-        name: 'city',
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/city/:id',
+            name: 'city',
 
 
             component: () =>
-                import('./views/City.vue')
+                import ('./views/City.vue')
 
 
-    },
+        },
 
-    {
-        path: '/cart',
-        name: 'cart',
-
-        component: () =>
-            import( /* webpackChunkName: "about" */ './views/Cart.vue')
-    }
+        {
+            path: '/cart',
+            name: 'cart',
 
             component: () =>
+                import ( /* webpackChunkName: "about" */ './views/Cart.vue')
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: () =>
 
-                import('./views/About.vue')
+                import ('./views/About.vue')
 
         }, {
             path: '/msite',
@@ -39,7 +41,7 @@ export default new Router({
 
             component: () =>
 
-                import('./views/Msite.vue')
+                import ('./views/Msite.vue')
         },
 
 

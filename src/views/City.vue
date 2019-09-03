@@ -87,6 +87,8 @@ export default {
   margin: 0 0.5rem;
   background-color: #3190e8;
   color: #fff;
+  border: 0;
+  font-size: 0.4375rem;
 }
 .card {
   width: 10rem;
