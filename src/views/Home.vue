@@ -1,17 +1,27 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Nav></Nav>
+    <HotCity></HotCity>
+
+    <CityList></CityList>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Nav from "@/components/Home/Nav.vue";
+import HotCity from "@/components/Home/HotCity.vue";
+import CityList from "@/components/Home/CityList.vue";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    Nav,
+    HotCity,
+    CityList
   }
 };
 </script>
+
+<style scoped>
+</style>
