@@ -14,17 +14,13 @@ export default new Router({
         path: '/city/:id',
         name: 'city',
 
-        component: () =>
-            import( /* webpackChunkName: "about" */ './views/City.vue')
+
+            component: () =>
+                import('./views/City.vue')
+
 
     },
-    {
-        path: '/about',
-        name: 'about',
 
-        component: () =>
-            import( /* webpackChunkName: "about" */ './views/About.vue')
-    },
     {
         path: '/cart',
         name: 'cart',
@@ -32,6 +28,21 @@ export default new Router({
         component: () =>
             import( /* webpackChunkName: "about" */ './views/Cart.vue')
     }
+
+            component: () =>
+
+                import('./views/About.vue')
+
+        }, {
+            path: '/msite',
+            name: 'msite',
+
+            component: () =>
+
+                import('./views/Msite.vue')
+        },
+
+
     ],
     linkActiveClass: 'my-active'
 })
