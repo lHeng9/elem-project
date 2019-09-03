@@ -22,14 +22,18 @@ export default new Router({
             name: 'about',
 
             component: () =>
+
                 import('./views/About.vue')
+
         }, {
             path: '/msite',
             name: 'msite',
 
             component: () =>
+
                 import('./views/Msite.vue')
         },
+
 
     ],
     linkActiveClass: 'my-active'

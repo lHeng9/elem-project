@@ -31,6 +31,9 @@ export default {
 .nav {
   margin-bottom: 0.25rem;
   background-color: #fff;
+
+  margin-top: 0.2rem;
+
 }
 .city_tip {
   background-color: #fff;
