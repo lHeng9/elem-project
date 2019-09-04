@@ -21,7 +21,7 @@
               score-template="{value}"
               class="star"
             ></el-rate>
-            <p class="order_num">月售106单</p>
+            <p class="order_num">月售{{ shop.recent_order_num }}单</p>
           </div>
           <div class="subbox">
             <p class="delivery_left">蜂鸟专送</p>
@@ -72,8 +72,6 @@ export default {
         })
         .then(res => {
           this.shopList = res.data;
-          console.log(this.shopList);
-          // this.Handle();
           setTimeout(() => {
             this.Handle();
           }, 1);
