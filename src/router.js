@@ -38,14 +38,21 @@ export default new Router({
             name: 'msite',
 
             component: () =>
+                import ('./views/Msite.vue')
+        }, {
+            path: '/food',
+            name: 'food',
 
-                import('./views/Msite.vue')
+            component: () =>
+                import ('./views/Food.vue')
+
         },
         {
             path: '/search',
             name: 'search',
 
             component: () =>
+
 
                 import('./views/Search.vue')
         },
@@ -59,6 +66,7 @@ export default new Router({
             name: 'info',
             component: () => import('./components/profile/Info.vue')
         }
+
     ],
     linkActiveClass: 'my-active'
 })
