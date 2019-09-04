@@ -21,11 +21,11 @@
               score-template="{value}"
               class="star"
             ></el-rate>
-            <span class="order_num">月售106单</span>
+            <p class="order_num">月售106单</p>
           </div>
-          <div>
-            <span class="delivery_left">蜂鸟专送</span>
-            <span class="delivery_right">准时达</span>
+          <div class="subbox">
+            <p class="delivery_left">蜂鸟专送</p>
+            <p class="delivery_right">准时达</p>
           </div>
         </div>
 
@@ -33,10 +33,10 @@
           <p
             class="fee"
           >￥{{shop.float_minimum_order_amount}}元起送 / 配送费约￥{{ shop.float_delivery_fee }}</p>
-          <p>
-            <span class="p1">{{ shop.distance }} /</span>
-            <span class="p2">{{ shop.order_lead_time }}</span>
-          </p>
+          <div class="subbox">
+            <p class="p1">{{ shop.distance }} /</p>
+            <p class="p2">{{ shop.order_lead_time }}</p>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -59,7 +59,7 @@ export default {
       }
       var texts = document.getElementsByClassName("el-rate__text");
       for (const text of texts) {
-        text.style.fontSize = "0.3rem";
+        text.style.fontSize = "0.4rem";
       }
     },
     getShop() {
@@ -126,7 +126,7 @@ img {
 }
 
 .fee {
-  font-size: 0.3125rem;
+  font-size: 0.3rem;
   color: #666;
 }
 
@@ -135,31 +135,35 @@ img {
   background-color: #3190e8;
   font-size: 0.3rem;
   margin: 0 0.05rem 0 0;
-  padding: 0.025rem 0.05rem 0;
+  padding: 0.015rem 0.05rem 0;
+  height: 0.4rem;
+  margin-top: 0.15rem;
 }
 
 .delivery_right {
   color: #3190e8;
   border: 0.0313rem solid #3190e8;
   font-size: 0.3rem;
-  padding: 0.025rem 0.05rem 0;
+  padding: 0.01rem 0.05rem 0;
+  height: 0.35rem;
+  margin-top: 0.15rem;
 }
 
 .order_num {
   font-size: 0.3rem;
   color: #666;
-  margin-top: 0.1rem;
+  margin-top: 0.25rem;
   margin-left: 0.1rem;
 }
 
 .p1 {
   color: #999;
-  font-size: 0.3125rem;
+  font-size: 0.3rem;
 }
 
 .p2 {
   color: #3190e8;
-  font-size: 0.3125rem;
+  font-size: 0.3rem;
 }
 
 .subbox {
@@ -172,5 +176,9 @@ img {
   background-color: #ffd930;
   padding: 0 0.0625rem;
   margin: 0 0.125rem 0 0;
+}
+
+.box3 {
+  margin-top: 0.2rem;
 }
 </style>
