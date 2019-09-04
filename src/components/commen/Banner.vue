@@ -5,34 +5,25 @@
       :touchable=true
       class="ban"
     >
-      <van-swipe-item class="swp">
+      <van-swipe-item
+        class="swp"
+        v-for="item in banner.length/8"
+        :key="item"
+      >
         <li
-          v-for="item in 8"
-          :key="item"
+          v-for="item in banner.slice((item-1)*8,item*8)"
+          :key="item.id"
         >
           <div class="item">
             <img
-              src="https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg"
+              :src="'https://fuss10.elemecdn.com'+item.image_url"
               alt=""
             >
-            <span>甜品饮品</span>
+            <span>{{item.title}}</span>
           </div>
         </li>
       </van-swipe-item>
-      <van-swipe-item class="swp">
-        <li
-          v-for="item in 8"
-          :key="item"
-        >
-          <div class="item">
-            <img
-              src="https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg"
-              alt=""
-            >
-            <span>甜品饮品</span>
-          </div>
-        </li>
-      </van-swipe-item>
+
     </van-swipe>
   </div>
 </template>
@@ -42,14 +33,25 @@ export default {
   name: "banner",
   methods: {},
   components: {},
+  data() {
+    return {
+      banner: []
+    };
+  },
   created() {
-    // this.$axios.get(
-    //   "http://elm.cangdu.org/v2/index_entry?geohash=37.609542,112.347147&group_type=1&flags[]=F",
-    //   {
-    //     params: {
-    //     }
-    //   }
-    // );
+    let geohash = this.$route.query.geohash;
+    console.log(geohash);
+
+    this.$axios
+      .get(
+        "http://elm.cangdu.org/v2/index_entry?+geohash=" +
+          geohash +
+          "&group_type=1&flags[]=F"
+      )
+      .then(res => {
+        console.log(res.data);
+        this.banner = res.data;
+      });
   }
 };
 </script>

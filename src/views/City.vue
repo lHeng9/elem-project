@@ -21,7 +21,7 @@
     <div class="show">
       <router-link
         tag="div"
-        to='/msite'
+        :to="'/msite?geohash='+item.geohash"
         class="card"
         v-for="(item,index) in result"
         :key="index"
