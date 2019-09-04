@@ -38,7 +38,6 @@ export default {};
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 99;
   padding: 0.1rem 0;
   border-top: 0.0313rem solid #cccccc;
   background-color: #fff;
