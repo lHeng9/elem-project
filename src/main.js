@@ -10,7 +10,9 @@ import 'vant/lib/index.css';
 
 import { Swipe, SwipeItem } from "vant";
 Vue.use(Swipe).use(SwipeItem);
+import { DropdownMenu, DropdownItem } from 'vant';
 
+Vue.use(DropdownMenu).use(DropdownItem);
 
 flex(600)
 Vue.use(ElementUI)

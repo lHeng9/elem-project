@@ -42,7 +42,15 @@ export default new Router({
             component: () =>
 
                 import ('./views/Msite.vue')
+        }, {
+            path: '/food',
+            name: 'food',
+
+            component: () =>
+
+                import ('./views/Food.vue')
         },
+
 
 
     ],

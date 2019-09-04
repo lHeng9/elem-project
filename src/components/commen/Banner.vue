@@ -10,7 +10,9 @@
         v-for="item in banner.length/8"
         :key="item"
       >
-        <li
+        <router-link
+          tag="li"
+          to="/food"
           v-for="item in banner.slice((item-1)*8,item*8)"
           :key="item.id"
         >
@@ -21,7 +23,7 @@
             >
             <span>{{item.title}}</span>
           </div>
-        </li>
+        </router-link>
       </van-swipe-item>
 
     </van-swipe>
