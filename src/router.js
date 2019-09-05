@@ -6,6 +6,7 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
+
             path: '/',
             name: 'home',
             component: Home
@@ -17,11 +18,12 @@ export default new Router({
                 import('./views/City.vue')
 
 
-        },
+    },
 
-        {
-            path: '/cart',
-            name: 'cart',
+    {
+        path: '/cart',
+        name: 'cart',
+
 
             component: () =>
                 import( /* webpackChunkName: "about" */ './views/Cart.vue')
@@ -33,9 +35,11 @@ export default new Router({
 
                 import('./views/About.vue')
 
-        }, {
-            path: '/msite',
-            name: 'msite',
+
+    }, {
+        path: '/msite',
+        name: 'msite',
+
 
             component: () =>
                 import ('./views/Msite.vue')
@@ -68,5 +72,5 @@ export default new Router({
         }
 
     ],
-    linkActiveClass: 'my-active'
+    linkActiveClass: 'my-active',
 })
