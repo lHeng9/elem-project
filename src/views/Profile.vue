@@ -61,15 +61,17 @@
           <p class="el-icon-arrow-right"></p>
         </el-col>
       </el-row>
-      <el-row class="sub" style="border:none">
-        <el-col :span="3">
-          <span class="iconfont icon-huangguan icon" :span="4" style="color:#FFC636"></span>
-        </el-col>
-        <el-col :span="21" class="subbox3">
-          <p>饿了么会员卡</p>
-          <p class="el-icon-arrow-right"></p>
-        </el-col>
-      </el-row>
+      <router-link to="/profile/vipcard" tag="div">
+        <el-row class="sub" style="border:none">
+          <el-col :span="3">
+            <span class="iconfont icon-huangguan icon" :span="4" style="color:#FFC636"></span>
+          </el-col>
+          <el-col :span="21" class="subbox3">
+            <p>饿了么会员卡</p>
+            <p class="el-icon-arrow-right"></p>
+          </el-col>
+        </el-row>
+      </router-link>
     </div>
 
     <div class="box4">
