@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/profile/info">
+    <router-link to="/profile/info" tag="div">
       <el-row class="box1">
         <el-col :span="4" class="subbox1">
           <img src="../assets/default.jpg" alt />
@@ -15,12 +15,12 @@
       </el-row>
     </router-link>
     <ul :span="24">
-      <li>
+      <router-link to="/profile/balance" tag="li">
         <p>
           <span style="color:#ff9900">0.00</span>元
         </p>
         <p>我的余额</p>
-      </li>
+      </router-link>
 
       <li>
         <p>
@@ -28,24 +28,26 @@
         </p>
         <p>我的优惠</p>
       </li>
-      <li style="border:none">
+      <router-link style="border:none" to="/profile/points" tag="li">
         <p>
           <span style="color:#6ac208">0</span>分
         </p>
         <p>我的积分</p>
-      </li>
+      </router-link>
     </ul>
 
     <div class="box3">
-      <el-row class="sub">
-        <el-col :span="3">
-          <span class="iconfont icon-wodedingdan icon" :span="4" style="color:#aaa"></span>
-        </el-col>
-        <el-col :span="21" class="subbox3">
-          <p>我的订单</p>
-          <p class="el-icon-arrow-right"></p>
-        </el-col>
-      </el-row>
+      <router-link to="/order">
+        <el-row class="sub">
+          <el-col :span="3">
+            <span class="iconfont icon-wodedingdan icon" :span="4" style="color:#aaa"></span>
+          </el-col>
+          <el-col :span="21" class="subbox3">
+            <p>我的订单</p>
+            <p class="el-icon-arrow-right"></p>
+          </el-col>
+        </el-row>
+      </router-link>
       <el-row class="sub">
         <el-col :span="3">
           <span

@@ -58,6 +58,36 @@ export default new Router({
             path: '/profile/info',
             name: 'info',
             component: () => import('./components/profile/Info.vue')
+        },
+        {
+            path: '/profile/info/setusername',
+            name: 'setusername',
+            component: () => import('./components/profile/SetUserName.vue')
+        },
+        {
+            path: '/profile/info/address',
+            name: 'address',
+            component: () => import('./components/profile/Address.vue')
+        },
+        {
+            path: '/profile/info/address/add',
+            name: 'addaddress',
+            component: () => import('./components/profile/AddAddress.vue')
+        },
+        {
+            path: '/profile/info/resetpwd',
+            name: 'resetpwd',
+            component: () => import('./components/profile/ResetPwd.vue')
+        },
+        {
+            path: '/profile/balance',
+            name: 'balance',
+            component: () => import('./components/profile/Balance.vue')
+        },
+        {
+            path: '/profile/points',
+            name: 'points',
+            component: () => import('./components/profile/Points.vue')
         }
     ],
     linkActiveClass: 'my-active'
