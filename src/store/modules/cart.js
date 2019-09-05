@@ -26,11 +26,17 @@ const mutations = {
         }
 
     },
+    deleteItem(state, index) {
+        state.cart.splice(index, 1)
+    }
 
 };
 const actions = {
     setCartAsync: ({ commit }, cart) => commit('setCart', cart),
     // delCartAsync: ({ commit }, cart) => commit('delCart', cart)
+    deleteItem({ commit }, index) {
+        commit('deleteItem', index)
+    }
 };
 
 

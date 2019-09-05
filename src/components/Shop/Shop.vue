@@ -2,7 +2,7 @@
   <div>
     <el-row class="card" v-for="shop in shopList" :key="shop.id">
       <el-col :span="5">
-        <img :src="'//elm.cangdu.org/img/' + shop.image_path" />
+        <img :src="'//elm.cangdu.org/img/' + shop.image_path" @click="gotoCart(shop.id)" />
       </el-col>
       <el-col :span="19">
         <div class="box1">
@@ -79,6 +79,10 @@ export default {
         .catch(err => {
           console.log(res.response.data);
         });
+    },
+    gotoCart(id) {
+      console.log(id);
+      this.$router.push("/cart?geohash=31.22967,121.4762&id=" + id);
     }
   },
   created() {
