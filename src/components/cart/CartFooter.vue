@@ -43,7 +43,7 @@
             <div class="cart-list-control">
               <i class="el-icon-remove-outline" @click="showList.num--;deleteMenuOne(cart)"></i>
               <span>{{ showList.num }}</span>
-              <i class="el-icon-circle-plus" @click="showList.num++;deleteMenuOne(cart)"></i>
+              <i class="el-icon-circle-plus" @click="showList.num++"></i>
             </div>
           </li>
         </ul>
@@ -60,8 +60,8 @@ export default {
   name: "CartFooter",
   data() {
     return {
-      flag: false,
-      showMenuList: []
+      flag: false
+      //   showMenuList: []
     };
   },
   computed: {
@@ -91,9 +91,8 @@ export default {
     },
     deleteMenuOne(cartArr) {
       cartArr.forEach((element, index) => {
-        // console.log(element,index)
         if (element.num <= 0) {
-          const arr = cartArr.splice(index, 1);
+          cartArr.splice(index, 1);
         }
       });
       if (cartArr.length == 0) {
@@ -101,7 +100,11 @@ export default {
       }
     },
     clearCart() {
-      //   this.$store.dispatch("setCartAsync", null);
+      console.log(this.cart);
+      this.cart.splice(0, this.cart.length);
+      console.log(this.cart.length);
+      this.flag = false;
+      //   this.$store.dispatch("setCartAsync", []);
     }
   }
 };

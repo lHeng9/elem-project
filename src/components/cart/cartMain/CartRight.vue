@@ -3,8 +3,8 @@
     <ul>
       <li v-for="(menu,index) in menuList" :key="index">
         <div class="menu-right-header">
-          <section class="menu-right-headerL">
-            <strong :id="menu.id" class="menu-item-title">{{ menu.name }}</strong>
+          <section :id="'w' + menu.id" class="menu-right-headerL">
+            <strong class="menu-item-title">{{ menu.name }}</strong>
             <span class="menu-item-description">{{ menu.description }}</span>
           </section>
           <span class="menu-item-right">···</span>
@@ -46,9 +46,15 @@
               <span>{{ menuMain.specfoods[0].price }}</span>
               <span>起</span>
             </div>
-            <section class="cart-module" @click="addMenu(menuMain)">
-              <i class="el-icon-circle-plus" />
-              <i class="el-icon-circle-plus add-cart-transition" />
+            <section class="cart-module">
+              <i
+                class="el-icon-remove-outline"
+                v-if="getNum(menuMain) && getNum(menuMain) != 0"
+                @click="delNum(menuMain)"
+              ></i>
+              <span v-if="getNum(menuMain) && getNum(menuMain) != 0">{{ getNum(menuMain) }}</span>
+              <i class="el-icon-circle-plus" @click="addMenu(menuMain);" />
+              <!-- <i class="el-icon-circle-plus add-cart-transition" /> -->
             </section>
           </footer>
         </section>
@@ -58,32 +64,65 @@
 </template>
 
 <script>
+import Vue from "vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "CartRight",
   data() {
     return {
-      menuList: [],
-      cartList: []
+      cartList: [],
+      shopcar: {}
     };
   },
-  created() {
-    this.$axios
-      .get("http://elm.cangdu.org/shopping/v2/menu?restaurant_id=3269")
-      .then(res => {
-        // console.log(res.data);
-        this.menuList = res.data;
-        // console.log(this.menuList);
-      });
+  computed: {
+    ...mapGetters(["cart"]),
+    getNum() {
+      return obj => {
+        for (let i = 0; i < this.cart.length; i++) {
+          if (this.cart[i].obj._id == obj._id) {
+            // console.log(this.cart[i].num);
+            return this.cart[i].num;
+          }
+        }
+      };
+    },
+    delNum() {
+      return obj => {
+        for (let i = 0; i < this.cart.length; i++) {
+          if (this.cart[i].obj._id == obj._id) {
+            // console.log(this.cart[i].num);
+            this.cart[i].num--;
+            if (this.cart[i].num <= 0) {
+              this.cart.splice(i, 1);
+            } else {
+              return this.cart[i].num;
+            }
+          }
+        }
+      };
+    }
   },
-
+  props: {
+    menuList: Array
+  },
   methods: {
     addMenu(obj) {
       //   console.log(obj);
       let objMenu = { obj, num: 1 };
       this.$store.dispatch("setCartAsync", objMenu);
     }
+    // deleteMenu(arr, obj) {
+    //   arr.forEach((ele, index) => {
+    //     if (ele.obj._id == obj._id) {
+    //       ele.num--;
+    //       this.$store.dispatch("setCartAsync", ele.num);
+    //       if (ele.num <= 0) {
+    //         arr.splice(index, 1);
+    //       }
+    //     }
+    //   });
+    // }
   }
 };
 </script>
@@ -234,7 +273,16 @@ p {
   color: #999;
 }
 .cart-module {
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+}
+.cart-module span {
+  font-size: 0.4063rem;
+  color: #666;
+  min-width: 0.625rem;
+  text-align: center;
+  font-family: Helvetica Neue, Tahoma;
 }
 /* 购物车动画 */
 @keyframes animation1 {
@@ -247,11 +295,11 @@ p {
     top: 50px;
   }
 }
-.add-cart-transition {
+/* .add-cart-transition {
   z-index: 2;
   position: absolute;
   animation: animation1 10s linear infinite;
-}
+} */
 
 /*  */
 i.el-icon-remove-outline,

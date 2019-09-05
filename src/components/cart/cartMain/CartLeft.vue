@@ -8,7 +8,7 @@
         :key="index"
         @click="menuClick(index)"
       >
-        <a :href="'#' + menu.id ">
+        <a @click="changeHash(menu.id)">
           <span>{{ menu.name }}</span>
         </a>
       </li>
@@ -21,22 +21,21 @@ export default {
   name: "CartLeft",
   data() {
     return {
-      menuList: [],
       findex: 0,
       height: ""
     };
   },
-  created() {
-    this.$axios
-      .get("http://elm.cangdu.org/shopping/v2/menu?restaurant_id=3269")
-      .then(res => {
-        console.log(res.data);
-        this.menuList = res.data;
-      });
+  props: {
+    menuList: Array
   },
   methods: {
     menuClick(index) {
       this.findex = index;
+    },
+    changeHash(idName) {
+      let id = "w" + idName;
+      console.log(id);
+      document.querySelector("#" + id).scrollIntoView(true);
     }
   }
 };
