@@ -88,6 +88,11 @@ export default new Router({
             path: '/profile/points',
             name: 'points',
             component: () => import('./components/profile/Points.vue')
+        },
+        {
+            path: '/profile/vipcard',
+            name: 'vipcard',
+            component: () => import('./components/profile/Vipcard.vue')
         }
     ],
     linkActiveClass: 'my-active'
