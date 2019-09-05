@@ -6,45 +6,45 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/city/:id',
-            name: 'city',
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
+        path: '/city/:id',
+        name: 'city',
 
 
-            component: () =>
-                import ('./views/City.vue')
+        component: () =>
+            import('./views/City.vue')
 
 
-        },
+    },
 
-        {
-            path: '/cart',
-            name: 'cart',
+    {
+        path: '/cart',
+        name: 'cart',
 
-            component: () =>
-                import ( /* webpackChunkName: "about" */ './views/Cart.vue')
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: () =>
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Cart.vue')
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: () =>
 
-                import ('./views/About.vue')
+            import('./views/About.vue')
 
-        }, {
-            path: '/msite',
-            name: 'msite',
+    }, {
+        path: '/msite',
+        name: 'msite',
 
-            component: () =>
+        component: () =>
 
-                import ('./views/Msite.vue')
-        },
+            import('./views/Msite.vue')
+    },
 
 
     ],
-    linkActiveClass: 'my-active'
+    linkActiveClass: 'my-active',
 })

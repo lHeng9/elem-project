@@ -27,8 +27,8 @@ export default {
 }
 .menu-container {
   display: flex;
-  /* flex: 1; */
-  /* overflow-y: hidden; */
+  flex: 1;
+  overflow-y: hidden;
   position: relative;
 }
 </style>
