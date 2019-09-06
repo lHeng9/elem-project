@@ -4,12 +4,12 @@
       <div class="subbox">
         <div class="flex">
           <p class="font">当前积分</p>
-          <div style="display:flex">
+          <router-link style="display:flex" to="/profile/points/detail" tag="div">
             <div class="img">
               <img src="../../assets/wenhao.png" />
             </div>
             <span class="font" style="color:#3190e8">积分说明</span>
-          </div>
+          </router-link>
         </div>
         <p class="font2">
           <span class="font1">0</span> 分

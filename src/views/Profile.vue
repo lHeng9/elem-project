@@ -75,29 +75,33 @@
     </div>
 
     <div class="box4">
-      <el-row class="sub">
-        <el-col :span="3">
-          <span class="iconfont icon-fuwuzhongxin icon" :span="4" style="color:#4AA5F0"></span>
-        </el-col>
-        <el-col :span="21" class="subbox3">
-          <p>服务中心</p>
-          <p class="el-icon-arrow-right"></p>
-        </el-col>
-      </el-row>
+      <router-link to="/service" tag="div">
+        <el-row class="sub">
+          <el-col :span="3">
+            <span class="iconfont icon-fuwuzhongxin icon" :span="4" style="color:#4AA5F0"></span>
+          </el-col>
+          <el-col :span="21" class="subbox3">
+            <p>服务中心</p>
+            <p class="el-icon-arrow-right"></p>
+          </el-col>
+        </el-row>
+      </router-link>
 
-      <el-row class="sub" style="border:none">
-        <el-col :span="3">
-          <span
-            class="iconfont icon-changyonglogo40 icon"
-            :span="4"
-            style="color:#3CABFF;font-size:0.9rem;margin-left:0.3rem;"
-          ></span>
-        </el-col>
-        <el-col :span="21" class="subbox3">
-          <p>下载饿了么APP</p>
-          <p class="el-icon-arrow-right"></p>
-        </el-col>
-      </el-row>
+      <router-link to="/download" tag="div">
+        <el-row class="sub" style="border:none">
+          <el-col :span="3">
+            <span
+              class="iconfont icon-changyonglogo40 icon"
+              :span="4"
+              style="color:#3CABFF;font-size:0.9rem;margin-left:0.3rem;"
+            ></span>
+          </el-col>
+          <el-col :span="21" class="subbox3">
+            <p>下载饿了么APP</p>
+            <p class="el-icon-arrow-right"></p>
+          </el-col>
+        </el-row>
+      </router-link>
     </div>
   </div>
 </template>
