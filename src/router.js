@@ -93,7 +93,48 @@ export default new Router({
             path: '/profile/vipcard',
             name: 'vipcard',
             component: () => import('./components/profile/Vipcard.vue')
+        },
+        {
+            path: '/profile/balance/detail',
+            name: 'balance-detail',
+            component: () => import('./components/profile/Balance.Detail.vue')
+        },
+        {
+            path: '/profile/points/detail',
+            name: 'points-detail',
+            component: () => import('./components/profile/Points.Detail.vue')
+        },
+        {
+            path: '/service',
+            name: 'service',
+            component: () => import('./components/profile/Service.vue')
+        },
+        {
+            path: '/service/questionDetail',
+            name: 'questionDetail',
+            component: () => import('./components/profile/service/questionDetail.vue')
+        },
+        {
+            path: '/download',
+            name: 'download',
+            component: () => import('./components/profile/download.vue')
+        },
+        {
+            path: '/profile/vipcard/vipDescription',
+            name: 'vipDescription',
+            component: () => import('./components/profile/vipDescription.vue')
+        },
+        {
+            path: '/profile/vipcard/invoiceRecord',
+            name: 'invoiceRecord',
+            component: () => import('./components/profile/invoiceRecord.vue')
+        },
+        {
+            path: '/profile/vipcard/useCart',
+            name: 'useCart',
+            component: () => import('./components/profile/useCart.vue')
         }
+
     ],
     linkActiveClass: 'my-active'
 })
