@@ -4,12 +4,12 @@
       <div class="subbox">
         <div class="flex">
           <p class="font">当前余额</p>
-          <div style="display:flex">
+          <router-link style="display:flex" to="/profile/balance/detail" tag="div">
             <div class="img">
               <img src="../../assets/wenhao.png" />
             </div>
             <span class="font" style="color:#3190e8">余额说明</span>
-          </div>
+          </router-link>
         </div>
         <p class="font2">
           <span class="font1">0.00</span> 元
