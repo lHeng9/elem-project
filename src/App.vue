@@ -4,7 +4,7 @@
     <transition>
       <router-view></router-view>
     </transition>
-    <FootGuide class="top"></FootGuide>
+    <!-- <FootGuide class="top"></FootGuide> -->
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
 
 <style>
 .app {
-  padding: 1.2188rem 0 1.2312rem 0;
+  padding: 1.2188rem 0 1.2312rem;
   overflow-x: hidden;
   overflow: hidden;
 }

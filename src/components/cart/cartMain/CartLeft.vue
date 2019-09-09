@@ -8,7 +8,9 @@
         :key="index"
         @click="menuClick(index)"
       >
-        <span>{{ menu.name }}</span>
+        <a @click="changeHash(menu.id)">
+          <span>{{ menu.name }}</span>
+        </a>
       </li>
     </ul>
   </section>
@@ -19,22 +21,21 @@ export default {
   name: "CartLeft",
   data() {
     return {
-      menuList: [],
-      findex: 0
+      findex: 0,
+      height: ""
     };
   },
-  created() {
-    this.$axios
-      .get("http://elm.cangdu.org/shopping/v2/menu?restaurant_id=3269")
-      .then(res => {
-        console.log(res.data);
-        this.menuList = res.data;
-        // console.log(this.menuList);
-      });
+  props: {
+    menuList: Array
   },
   methods: {
     menuClick(index) {
       this.findex = index;
+    },
+    changeHash(idName) {
+      let id = "w" + idName;
+      console.log(id);
+      document.querySelector("#" + id).scrollIntoView(true);
     }
   }
 };
@@ -46,17 +47,18 @@ export default {
   padding: 0;
 }
 .menu-wrapper {
+  position: fixed;
+  height: 100%;
+  left: 0;
   width: 2.375rem;
-  /* height: 1.7188rem; */
-  /* overflow: hidden; */
+  overflow-y: scroll;
 }
 .menu-left-li {
   font-size: 0.625rem;
-  width: 2.375rem;
-  height: 1.7188rem;
   font-family: "Microsoft Yahei";
   padding: 0.4375rem 0.1875rem;
   color: #333333;
+  border-bottom: 0.0156rem solid #ededed;
 }
 .menu-left-li span {
   color: #666;
