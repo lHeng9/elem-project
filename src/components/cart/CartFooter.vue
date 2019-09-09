@@ -17,7 +17,7 @@
         <div class="gotopay" v-if="cart.length == 0">
           <span class="gotopay-span">还差￥20起送</span>
         </div>
-        <div class="gotopay gotopay-active" v-if="cart.length != 0">
+        <div class="gotopay gotopay-active" v-if="cart.length != 0" @click="gotoOrder">
           <span class="gotopay-span">结算</span>
         </div>
       </div>
@@ -100,11 +100,17 @@ export default {
       }
     },
     clearCart() {
-      console.log(this.cart);
+      // console.log(this.cart);
       this.cart.splice(0, this.cart.length);
-      console.log(this.cart.length);
+      // console.log(this.cart.length);
       this.flag = false;
       //   this.$store.dispatch("setCartAsync", []);
+    },
+    gotoOrder() {
+      this.$router.push(
+        "/order?geohash=31.22967,121.4762&id=" + this.$route.query.id
+      );
+      console.log(this.$route.query);
     }
   }
 };

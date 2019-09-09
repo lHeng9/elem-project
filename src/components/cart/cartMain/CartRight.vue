@@ -12,7 +12,7 @@
         <!--  -->
         <section class="menu-right-list" v-for="(menuMain,inde) in menu.foods" :key="inde">
           <div class="menu-list-link">
-            <section class="munu-list-img">
+            <section class="munu-list-img" @click="gotoDescription(menuMain)">
               <img :src="'http://elm.cangdu.org/img/' + menuMain.image_path" />
             </section>
             <section class="menu-list-description">
@@ -41,7 +41,7 @@
             </section>
           </div>
           <footer class="menu-right-footer">
-            <div class="food-price">
+            <div class="food-price" v-if="menuMain.specfoods[0]">
               <span>￥</span>
               <span>{{ menuMain.specfoods[0].price }}</span>
               <span>起</span>
@@ -111,18 +111,12 @@ export default {
       //   console.log(obj);
       let objMenu = { obj, num: 1 };
       this.$store.dispatch("setCartAsync", objMenu);
+    },
+    gotoDescription(obj) {
+      // this.$router.push("/description?id=" + obj._id);
+      this.$router.push({ path: "/description", query: obj });
+      //   console.log(obj);
     }
-    // deleteMenu(arr, obj) {
-    //   arr.forEach((ele, index) => {
-    //     if (ele.obj._id == obj._id) {
-    //       ele.num--;
-    //       this.$store.dispatch("setCartAsync", ele.num);
-    //       if (ele.num <= 0) {
-    //         arr.splice(index, 1);
-    //       }
-    //     }
-    //   });
-    // }
   }
 };
 </script>

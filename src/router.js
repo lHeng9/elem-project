@@ -7,15 +7,15 @@ Vue.use(Router)
 export default new Router({
     routes: [{
 
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/city/:id',
-            name: 'city',
-            component: () =>
-                import('./views/City.vue')
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
+        path: '/city/:id',
+        name: 'city',
+        component: () =>
+            import('./views/City.vue')
 
 
     },
@@ -25,22 +25,58 @@ export default new Router({
         name: 'cart',
 
 
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/Cart.vue')
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: () =>
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Cart.vue')
+    },
+    {
+        path: '/description',
+        name: 'description',
 
-                import('./views/About.vue')
+
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/ShowDescription.vue')
+    },
+    {
+        path: '/order',
+        name: 'order',
+
+
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Order.vue'),
+    },
+    {
+        path: '/selectAddress',
+        name: 'selectAddress',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/SelectAddress.vue'),
+
+    },
+    {
+        path: '/selectAddress/addAddress',
+        name: 'addAddress',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/AddAddress.vue'),
+        children: [
+            {
+                path: '/selectAddress/addAddress/searchAddress',
+                name: 'searchAddress',
+                component: () =>
+                    import( /* webpackChunkName: "about" */ './views/SearchAddress.vue')
+            },
+        ]
+    },
+
+    {
+        path: '/about',
+        name: 'about',
+        component: () =>
+
+            import('./views/About.vue')
 
 
     }, {
         path: '/msite',
         name: 'msite',
-
-
             component: () =>
                 import ('./views/Msite.vue')
         }, {
@@ -105,6 +141,7 @@ export default new Router({
             name: 'vipcard',
             component: () => import('./components/profile/Vipcard.vue')
         }
+
 
     ],
     linkActiveClass: 'my-active',
