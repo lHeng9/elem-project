@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <span>ele.me</span>
+    <i class="el-icon-arrow-left" @click="gotoBack()"></i>
     <div>
       <span>登录</span>|
       <span>注册</span>
@@ -9,7 +9,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Header",
+  methods: {
+    gotoBack() {
+      this.$router.go(-1);
+    }
+  }
+};
 </script>
 
 <style>
@@ -18,6 +25,7 @@ export default {};
   background-color: #3190e8;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.4375rem;
   color: #fff;
   height: 1.2188rem;
@@ -28,5 +36,8 @@ export default {};
   top: 0;
   box-sizing: border-box;
   padding: 0 0.2813rem;
+}
+i {
+  font-size: 0.8125rem;
 }
 </style>

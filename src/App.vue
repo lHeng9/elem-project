@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <!-- <Header-m></Header-m> -->
+    <Header-m></Header-m>
     <transition>
       <router-view></router-view>
     </transition>
@@ -22,7 +22,7 @@ export default {
 
 <style>
 .app {
-  /* padding: 1.2188rem 0 1.2312rem 0; */
+  padding: 1.2188rem 0 1.2312rem;
   overflow-x: hidden;
   overflow: hidden;
 }
