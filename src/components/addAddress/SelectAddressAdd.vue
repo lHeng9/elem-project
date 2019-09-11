@@ -66,7 +66,7 @@ export default {
       this.$store.dispatch("setAddAddressAsync", address);
       setTimeout(() => {
         this.$router.push({
-          name: "order",
+          name: "orderList",
           query: {
             geohash: "31.22967,121.4762",
             id: this.$route.query.id

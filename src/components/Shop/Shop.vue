@@ -82,6 +82,10 @@ export default {
         .catch(err => {
           console.log(res.response.data);
         });
+    },
+    gotoCart(id) {
+      // console.log(id);
+      this.$router.push("/cart?geohash=31.22967,121.4762&id=" + id);
     }
   },
   created() {

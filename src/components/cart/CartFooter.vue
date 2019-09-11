@@ -136,7 +136,7 @@ export default {
             this.$router.push(
               // "/order?geohash=31.22967,121.4762&id=" + this.$route.query.id
               {
-                name: "order",
+                name: "orderList",
                 params: { data: res.data },
                 query: {
                   geohash: "31.22967,121.4762",

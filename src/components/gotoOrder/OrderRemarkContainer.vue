@@ -54,7 +54,7 @@ export default {
     },
     currentRemark() {
       this.$router.push({
-        name: "order",
+        name: "orderList",
         params: { obj: this.obj, list: this.remarkLists, text: this.text }
       });
     }
