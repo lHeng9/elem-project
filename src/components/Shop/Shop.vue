@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="rate">
     <el-row class="card" v-for="shop in shopList" :key="shop.id">
       <el-col :span="5">
         <img :src="'//elm.cangdu.org/img/' + shop.image_path" @click="gotoCart(shop.id)" />
@@ -74,15 +74,14 @@ export default {
           this.shopList = res.data;
           setTimeout(() => {
             this.Handle();
+            setTimeout(() => {
+              document.querySelector("#rate").style.opacity = "1";
+            }, 300);
           }, 1);
         })
         .catch(err => {
           console.log(res.response.data);
         });
-    },
-    gotoCart(id) {
-      console.log(id);
-      this.$router.push("/cart?geohash=31.22967,121.4762&id=" + id);
     }
   },
   created() {
@@ -182,5 +181,9 @@ img {
 
 .box3 {
   margin-top: 0.2rem;
+}
+
+#rate {
+  opacity: 0;
 }
 </style>
