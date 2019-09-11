@@ -2,17 +2,22 @@
   <div class="payfor-wait">
     <p
       class="wait-money"
-    >待支付￥ {{ showPriceAll + orderData.cart.extra[0].price + orderData.cart.restaurant_info.float_delivery_fee }}</p>
+      v-if="order.length != 0"
+    >待支付￥ {{ showPriceAll + order[0].cart.extra[0].price + order[0].cart.restaurant_info.float_delivery_fee }}</p>
     <p class="wait-current">确认下单</p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "GoToFooter",
   props: {
     showPriceAll: Number,
     orderData: Object
+  },
+  computed: {
+    ...mapGetters(["order"])
   }
 };
 </script>

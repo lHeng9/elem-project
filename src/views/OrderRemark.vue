@@ -1,20 +1,19 @@
 <template>
   <div>
     <!-- <Header /> -->
-    <AddAddressContainer />
-    <router-view></router-view>
+    <OrderRemarkContainer />
   </div>
 </template>
 
 <script>
 import Header from "../components/header/Header";
-import AddAddressContainer from "../components/addAddress/AddAddressContainer";
+import OrderRemarkContainer from "../components/gotoOrder/OrderRemarkContainer";
 
 export default {
-  name: "AddAddress",
+  name: "OrderRemark",
   components: {
     Header,
-    AddAddressContainer
+    OrderRemarkContainer
   }
 };
 </script>
