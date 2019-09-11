@@ -51,7 +51,7 @@ export default {
   },
   created() {
     this.queryObj = this.$route.query;
-    console.log(this.queryObj);
+    // console.log(this.queryObj);
   },
   methods: {
     goback() {

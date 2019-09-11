@@ -1,8 +1,8 @@
 <template>
   <div class="delivery-foodsList">
-    <div class="foodsList-header">
-      <img :src="'http://elm.cangdu.org/img/' + orderData.cart.restaurant_info.image_path" />
-      <span>{{orderData.cart.restaurant_info.name}}</span>
+    <div class="foodsList-header" v-if="order.length != 0">
+      <img :src="'http://elm.cangdu.org/img/' + order[0].cart.restaurant_info.image_path" />
+      <span>{{order[0].cart.restaurant_info.name}}</span>
     </div>
     <ul class="foodsList-list">
       <li class="foodsList-list-item" v-for="(menuOne,inde) in cart" :key="inde">
@@ -13,19 +13,23 @@
         </div>
       </li>
     </ul>
-    <div class="foodsList-other">
-      <p class="other-text">{{orderData.cart.extra[0].name}}</p>
-      <span class="other-price">￥ {{orderData.cart.extra[0].price}}</span>
+    <div class="foodsList-other" v-if="order.length != 0">
+      <p class="other-text">{{order[0].cart.extra[0].name}}</p>
+      <span class="other-price">￥ {{order[0].cart.extra[0].price}}</span>
     </div>
     <div class="foodsList-other">
       <p class="other-text">配送费</p>
-      <span class="other-price">￥ {{orderData.cart.restaurant_info.float_delivery_fee}}</span>
+      <span
+        class="other-price"
+        v-if="order.length != 0"
+      >￥ {{order[0].cart.restaurant_info.float_delivery_fee}}</span>
     </div>
     <div class="foodsList-order">
       <span>订单</span>
       <span
         class="list-item-num"
-      >待支付 ￥{{ showPriceAll + orderData.cart.extra[0].price + orderData.cart.restaurant_info.float_delivery_fee }}</span>
+        v-if="order.length != 0"
+      >待支付 ￥{{ showPriceAll + order[0].cart.extra[0].price + order[0].cart.restaurant_info.float_delivery_fee }}</span>
     </div>
     <!-- {{orderData}} -->
   </div>
@@ -38,12 +42,12 @@ import { mapGetters } from "vuex";
 export default {
   name: "GoToDelivery",
   props: {
-    showPriceAll: Number,
-    orderData: Object
+    showPriceAll: Number
   },
   computed: {
-    ...mapGetters(["cart"])
-  }
+    ...mapGetters(["cart", "order"])
+  },
+  created() {}
 };
 </script>
 

@@ -3,7 +3,22 @@
     <div class="address-add" @click="gotoAddress">
       <div class="address-add-left">
         <i class="el-icon-location-outline"></i>
-        <span class="add-left-text">请添加一个收货地址</span>
+        <span class="add-left-text" v-if="addAddress.toString() == ''">请添加一个收货地址</span>
+        <div v-else>
+          <div class="show-address-title">
+            <span class="name">{{ addAddress.name }}</span>
+            <span
+              :class="addAddress.sex ? 'sex' : ''"
+            >{{ addAddress.sex == 1 ? '先生' : addAddress.sex == 2 ? '女士' : ''}}</span>
+            <span class="tel">{{ addAddress.phone }} {{addAddress.phone_bk}}</span>
+          </div>
+          <div>
+            <span
+              :class="addAddress.tag_type ? 'type' : ''"
+            >{{ addAddress.tag_type == 1 ? '无' : addAddress.tag_type == 2 ? '家' : addAddress.tag_type == 3 ? '学校' : addAddress.tag_type == 4 ? '公司' : '' }}</span>
+            <span class="address">{{ addAddress.address }} {{ addAddress.address_detail}}</span>
+          </div>
+        </div>
       </div>
       <div class="address-add-right">
         <i class="el-icon-arrow-right"></i>
@@ -13,8 +28,11 @@
     <div class="address-send">
       <p class="send-arrive">送达时间</p>
       <div class="send-time">
-        <p class="send-time-p1">尽快送达 | 预计 {{ orderData.delivery_reach_time }}</p>
-        <p class="send-time-p2">{{ orderData.cart.restaurant_info.delivery_mode.text }}</p>
+        <p class="send-time-p1">尽快送达 | 预计 {{ order[0].delivery_reach_time }}</p>
+        <p
+          class="send-time-p2"
+          v-if="order[0].cart"
+        >{{ order[0].cart.restaurant_info.delivery_mode.text }}</p>
       </div>
     </div>
     <!--  -->
@@ -37,8 +55,18 @@
     <div class="order-other">
       <div class="payforway-text">
         <span class="payforway-way-span1">订单备注</span>
-        <div class="payforway-waymore">
-          <span class="payforway-way-span2">口味、偏好等</span>
+        <div class="payforway-waymore" @click="gotoOrderRemark">
+          <span class="payforway-way-span2">
+            <span v-if="ele.length == 0">微辣、不要香菜等</span>
+            <span v-else>
+              <span
+                v-for="(element,index) in ele"
+                :key="index"
+                style="margin-right:0.0938rem"
+              >{{ element }}</span>
+              <span>{{text}}</span>
+            </span>
+          </span>
           <i class="el-icon-arrow-right"></i>
         </div>
       </div>
@@ -48,13 +76,13 @@
       </div>
     </div>
     <!-- 支付方式隐藏 -->
-    <div class="payforway-hidden" v-if="flag">
+    <div class="payforway-hidden" v-if="flag" @click="flag = false">
       <div class="hidden-container">
         <p class="hidden-title">支付方式</p>
         <ul>
           <li
-            v-for="(payWay,index) in orderData.payments"
-            :key="index"
+            v-for="(payWay,i) in order[0].payments"
+            :key="i"
             :class="payWay.is_online_payment == false ? 'hidden-moreway' : 'hidden-moreway hidden-i'"
             @click="payWay.is_online_payment == false ? flag=true : flag=false"
           >
@@ -77,8 +105,19 @@ export default {
   name: "GoToOrder",
   data() {
     return {
-      flag: false
+      flag: false,
+      ele: [],
+      text: ""
     };
+  },
+  created() {
+    for (const key in this.$route.params.obj) {
+      if (this.$route.params.obj.hasOwnProperty(key)) {
+        const element = this.$route.params.obj[key];
+        this.ele.push(this.$route.params.list[key][element]);
+      }
+    }
+    this.text = this.$route.params.text;
   },
   props: {
     orderData: Object,
@@ -88,11 +127,20 @@ export default {
     GotoDelivery
   },
   computed: {
-    ...mapGetters(["cart"])
+    ...mapGetters(["cart", "addAddress", "order"])
   },
   methods: {
     gotoAddress() {
-      this.$router.push("/selectAddress");
+      this.$router.push({
+        name: "selectAddress",
+        query: {
+          geohash: "31.22967,121.4762",
+          id: this.$route.query.id
+        }
+      });
+    },
+    gotoOrderRemark() {
+      this.$router.push("/remark");
     }
   }
 };
@@ -190,6 +238,7 @@ i.el-icon-arrow-right {
   display: inline-block;
   text-align: right;
   vertical-align: middle;
+  overflow: visible;
 }
 .payforway-waymore i.el-icon-arrow-right {
   color: #ccc;
@@ -249,5 +298,31 @@ i.el-icon-success {
 }
 .hidden-i i.el-icon-success {
   color: #4cd964;
+}
+.name {
+  font-size: 0.5rem;
+  font-weight: 700;
+}
+.type {
+  font-size: 0.3125rem;
+  color: #fff;
+  border-radius: 0.0938rem;
+  background-color: #ff5722;
+  height: 0.375rem;
+  line-height: 0.375rem;
+  padding: 0 0.125rem;
+  margin-right: 0.1875rem;
+}
+.address {
+  font-size: 0.375rem;
+  color: #777;
+}
+.show-address-title {
+  font-size: 0.4375rem;
+  color: #333;
+}
+.show-address-title span {
+  margin-right: 0.1563rem;
+  font-family: Helvetica Neue, Tahoma, Arial;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="select-address">
-    <HeaderM />
+    <!-- <HeaderM /> -->
     <SelectAddressAdd />
   </div>
 </template>
@@ -18,5 +18,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>
