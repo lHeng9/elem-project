@@ -45,7 +45,7 @@ export default {
           "http://elm.cangdu.org/v1/pois?type=nearby&keyword=" + this.keyword
         )
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
           this.searchLists = res.data;
         });
     }

@@ -107,10 +107,45 @@ export default {
       //   this.$store.dispatch("setCartAsync", []);
     },
     gotoOrder() {
-      this.$router.push(
-        "/order?geohash=31.22967,121.4762&id=" + this.$route.query.id
-      );
-      console.log(this.$route.query);
+      this.cart.forEach(element => {
+        this.$axios
+          .post("http://elm.cangdu.org/v1/carts/checkout", {
+            come_from: "web",
+            entities: [
+              [
+                {
+                  attrs: [],
+                  extra: [],
+                  id: element.obj.specfoods[0].food_id,
+                  name: element.obj.specfoods[0].name,
+                  packing_fee: element.obj.specfoods[0].packing_fee,
+                  price: element.obj.specfoods[0].price,
+                  quantity: element.num,
+                  sku_id: element.obj.specfoods[0].sku_id,
+                  specs: [""],
+                  stock: element.obj.specfoods[0].stock
+                }
+              ]
+            ],
+            geohash: "37.82371,112.55487",
+            restaurant_id: element.obj.specfoods[0].restaurant_id
+          })
+          .then(res => {
+            console.log(this.orderData);
+            let id = this.$route.query.id;
+            this.$router.push(
+              // "/order?geohash=31.22967,121.4762&id=" + this.$route.query.id
+              {
+                name: "order",
+                params: { data: res.data },
+                query: {
+                  geohash: "31.22967,121.4762",
+                  id: this.$route.query.id
+                }
+              }
+            );
+          });
+      });
     }
   }
 };

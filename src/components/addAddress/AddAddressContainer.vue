@@ -44,14 +44,6 @@
       <div class="address-list">
         <span>送餐地址</span>
         <div class="address-right">
-          <!-- <input
-            type="text"
-            class="address-choose"
-            placeholder="小区/写字楼/学校等"
-            value="1"
-            v-model="address.address1"
-            @click="gotoSearch"
-          />-->
           <div
             class="address-choose"
             @click="gotoSearch"
@@ -81,18 +73,50 @@ export default {
       flag3: false,
       address: {
         name: "",
-        // sex: this.flag1 == true ? "先生" : "女士",
         tel: "",
         tel2: "",
-        address1: "",
         address2: "",
-        label: ""
-      }
+        label: "",
+        tag: 0
+      },
+      sex: 0,
+      address1: ""
     };
   },
   methods: {
     addAddress() {
-      this.$store.dispatch("setAddressAsync", this.address);
+      this.sex = this.flag1 == true ? 1 : 2;
+      this.address1 = this.$route.params.name ? this.$route.params.name : "";
+      if (this.address.label == "家") {
+        this.address.tag = 2;
+      } else if (this.address.label == "学校") {
+        this.address.tag = 3;
+      } else if (this.address.label == "公司") {
+        this.address.tag = 4;
+      } else {
+        this.address.tag = 1;
+      }
+      console.log(parseInt(localStorage.getItem("userId")));
+      this.$axios
+        .post(
+          "https://elm.cangdu.org/v1/users/" +
+            parseInt(localStorage.getItem("userId")) +
+            "/addresses",
+          {
+            address: this.address1,
+            address_detail: this.address.address2,
+            geohash: "37.82371,112.55487",
+            name: this.address.name,
+            phone: this.address.tel,
+            phone_bk: this.address.tel2,
+            sex: this.sex,
+            tag: this.address.label,
+            tag_type: this.address.tag
+          }
+        )
+        .then(res => {
+          console.log(res);
+        });
       this.$router.push("/selectAddress");
     },
     gotoSearch() {
