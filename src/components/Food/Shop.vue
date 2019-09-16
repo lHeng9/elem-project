@@ -1,15 +1,8 @@
 <template>
-  <div>
-    <el-row
-      class="card"
-      v-for="shop in shopList"
-      :key="shop.id"
-    >
+  <div id="rate">
+    <el-row class="card" v-for="shop in shopList" :key="shop.id">
       <el-col :span="5">
-        <img
-          :src="'//elm.cangdu.org/img/' + shop.image_path"
-          @click="gotoCart(shop.id)"
-        />
+        <img :src="'//elm.cangdu.org/img/' + shop.image_path" @click="gotoCart(shop.id)" />
       </el-col>
       <el-col :span="19">
         <div class="box1">
@@ -37,7 +30,9 @@
         </div>
 
         <div class="box3">
-          <p class="fee">￥{{shop.float_minimum_order_amount}}元起送 / 配送费约￥{{ shop.float_delivery_fee }}</p>
+          <p
+            class="fee"
+          >￥{{shop.float_minimum_order_amount}}元起送 / 配送费约￥{{ shop.float_delivery_fee }}</p>
           <div class="subbox">
             <p class="p1">{{ shop.distance }} /</p>
             <p class="p2">{{ shop.order_lead_time }}</p>
@@ -75,7 +70,12 @@ export default {
   },
   watch: {
     shopList() {
-      this.Handle();
+      setTimeout(() => {
+        this.Handle();
+        setTimeout(() => {
+          document.querySelector("#rate").style.opacity = "1";
+        }, 300);
+      }, 1);
     }
   }
 };
@@ -172,5 +172,9 @@ img {
 
 .box3 {
   margin-top: 0.2rem;
+}
+
+#rate {
+  opacity: 0;
 }
 </style>
