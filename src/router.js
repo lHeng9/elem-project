@@ -7,63 +7,68 @@ Vue.use(Router)
 export default new Router({
     routes: [{
 
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/city/:id',
-            name: 'city',
-            component: () =>
-                import('./views/City.vue')
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
+        path: '/order',
+        name: 'order',
+        component: () =>
+            import('./components/order/Order.vue')
+    },
+    {
+        path: '/city/:id',
+        name: 'city',
+        component: () =>
+            import('./views/City.vue')
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Login.vue')
+    },
+    {
+        path: '/cart',
+        name: 'cart',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Cart.vue')
+    },
+    {
+        path: '/description',
+        name: 'description',
 
 
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/Login.vue')
-        },
-        {
-            path: '/cart',
-            name: 'cart',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/Cart.vue')
-        },
-        {
-            path: '/description',
-            name: 'description',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/ShowDescription.vue')
+    },
+    {
+        path: '/orderList',
+        name: 'orderList',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/OrderList.vue'),
+    },
+    {
+        path: '/payment',
+        name: 'payment',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/Payment.vue'),
+    },
+    {
+        path: '/selectAddress',
+        name: 'selectAddress',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/SelectAddress.vue'),
 
-
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/ShowDescription.vue')
-        },
-        {
-            path: '/orderList',
-            name: 'orderList',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/OrderList.vue'),
-        },
-        {
-            path: '/payment',
-            name: 'payment',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/Payment.vue'),
-        },
-        {
-            path: '/selectAddress',
-            name: 'selectAddress',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/SelectAddress.vue'),
-
-        },
-        {
-            path: '/selectAddress/addAddress',
-            name: 'addAddress',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/AddAddress.vue'),
-            children: [{
+    },
+    {
+        path: '/selectAddress/addAddress',
+        name: 'addAddress',
+        component: () =>
+            import( /* webpackChunkName: "about" */ './views/AddAddress.vue'),
+        children: [
+            {
                 path: '/selectAddress/addAddress/searchAddress',
                 name: 'searchAddress',
                 component: () =>

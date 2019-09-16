@@ -131,7 +131,7 @@ export default {
             restaurant_id: element.obj.specfoods[0].restaurant_id
           })
           .then(res => {
-            console.log(this.orderData);
+            console.log(res.data);
             let id = this.$route.query.id;
             this.$router.push(
               // "/order?geohash=31.22967,121.4762&id=" + this.$route.query.id

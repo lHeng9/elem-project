@@ -1,9 +1,29 @@
 <template>
-  <div class="header">
-    <i class="el-icon-arrow-left" @click="gotoBack()"></i>
+
+  <div class="header" v-if="$route.name != 'cart'">
+    <div>
+      <span v-if="$route.name == 'home'">ele</span>
+      <i class="el-icon-zoom-out" v-else-if="$route.name == 'msite'" @click="goSearch()"></i>
+      <i class="el-icon-arrow-left" @click="gotoBack()" v-else></i>
+    </div>
+
+    <div>
+      <span v-if="$route.name == 'city'">城市</span>
+      <span v-if="$route.name == 'msite'">商品</span>
+      <span v-if="$route.name == 'orderList'">确认订单</span>
+      <span v-if="$route.name == 'payment'">在线支付</span>
+      <span v-if="$route.name == 'order'">订单列表</span>
+      <span v-if="$route.name == 'profile'">我的</span>
+      <span v-if="$route.name == 'search'">搜索</span>
+      <span v-if="$route.name == 'vipcard'">会员中心</span>
+      <span v-if="$route.name == 'service'">服务中心</span>
+      <span v-if="$route.name == 'download'">下载</span>
+      <span v-if="$route.name == 'food'">商家</span>
+    </div>
+
     <div v-if="!user">
-      <span @click="login">登录</span>
-      |
+      <span @click="login">登录</span> |
+
       <span>注册</span>
     </div>
     <div v-else>
@@ -28,6 +48,9 @@ export default {
     },
     login() {
       this.$router.push("/login");
+    },
+    goSearch() {
+      this.$router.push("/search");
     }
   },
   created() {
@@ -57,6 +80,7 @@ export default {
 }
 i {
   font-size: 0.8125rem;
+  line-height: 1.2188rem;
 }
 i.el-icon-user {
   font-size: 0.625rem;
