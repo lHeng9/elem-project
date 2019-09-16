@@ -35,7 +35,7 @@ export default {
     };
   },
   created() {
-    // console.log(this.$route.params);
+    // console.log(this.$route.params.data);
     this.orderData = this.$route.params.data;
     this.$store.dispatch("setOrderAsync", this.orderData);
   }

@@ -12,12 +12,16 @@ export default new Router({
         component: Home
     },
     {
+        path: '/order',
+        name: 'order',
+        component: () =>
+            import('./components/order/Order.vue')
+    },
+    {
         path: '/city/:id',
         name: 'city',
         component: () =>
             import('./views/City.vue')
-
-
     },
     {
         path: '/login',

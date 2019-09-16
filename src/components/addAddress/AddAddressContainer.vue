@@ -96,7 +96,7 @@ export default {
       } else {
         this.address.tag = 1;
       }
-      console.log(parseInt(localStorage.getItem("userId")));
+      // console.log(parseInt(localStorage.getItem("userId")));
       this.$axios
         .post(
           "https://elm.cangdu.org/v1/users/" +
@@ -116,8 +116,8 @@ export default {
         )
         .then(res => {
           console.log(res);
+          this.$router.push("/selectAddress");
         });
-      this.$router.push("/selectAddress");
     },
     gotoSearch() {
       this.$router.push("/selectAddress/addAddress/searchAddress");

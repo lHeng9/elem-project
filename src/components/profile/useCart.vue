@@ -5,7 +5,7 @@
       <span class="user_id">202770857</span>
     </p>
     <div class="input">
-      <input type="text" placeholder="请输入10位卡号" />
+      <input type="text" placeholder="请输入10位卡号" style="border-bottom:0.0156rem solid #f1f1f1" />
       <input type="text" placeholder="请输入6位卡密" />
     </div>
     <div class="my-btn">兑换</div>

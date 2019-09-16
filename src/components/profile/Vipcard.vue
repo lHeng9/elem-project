@@ -41,7 +41,7 @@
           <span class="box3-subtitle">￥20</span>
         </p>
         <div>
-          <div class="box3-title1">购买</div>
+          <div class="box3-title1" @click="gobuy">购买</div>
         </div>
       </div>
     </div>
@@ -63,7 +63,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    gobuy() {
+      this.$router.push("/payment");
+    }
+  }
+};
 </script>
 
 <style  scoped>

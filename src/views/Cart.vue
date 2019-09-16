@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style scoped>
+.cart-main {
+  margin-top: -1.2188rem;
+}
 * {
   margin: 0;
   padding: 0;
@@ -66,7 +69,5 @@ ul {
   font-weight: 400;
   font-family: Microsoft Yahei;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
 }
 </style>

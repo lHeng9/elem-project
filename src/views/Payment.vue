@@ -47,7 +47,7 @@
       <div class="alert-container">
         <i class="el-icon-warning-outline"></i>
         <p class="alert-text">当前环境无法支付，请打开官方APP进行付款</p>
-        <p class="btn1" @click="flag4 = false">确认</p>
+        <p class="btn1" @click="goOrder">确认</p>
       </div>
     </div>
     <div class="alert" v-if="flag5">
@@ -84,11 +84,17 @@ export default {
           ? "0" + Math.floor(this.time / 60)
           : Math.floor(this.time / 60);
       this.s = this.time % 60 < 10 ? "0" + (this.time % 60) : this.time % 60;
-      if (time <= 0) {
+      if (this.time <= 0) {
         clearInterval(timeId);
         this.flag5 = true;
       }
     }, 1000);
+  },
+  methods: {
+    goOrder() {
+      this.flag4 = false;
+      this.$router.push("/order");
+    }
   }
 };
 </script>
