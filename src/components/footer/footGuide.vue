@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$route.name != 'orderList'">
     <el-row type="flex" class="row-bg" justify="space-around">
       <el-col :span="5" class="font1">
         <router-link to="/msite" tag="div">
