@@ -1,31 +1,33 @@
 <template>
-  <div v-if="$route.name != 'orderList'">
-    <el-row type="flex" class="row-bg" justify="space-around">
-      <el-col :span="5" class="font1">
-        <router-link to="/msite" tag="div">
-          <span class="el-icon-eleme icon1"></span>
-          <span class="font">外卖</span>
-        </router-link>
-      </el-col>
-      <el-col :span="5" class="font1">
-        <router-link to="/search" tag="div">
-          <span class="iconfont icon-luopancompass83 icon"></span>
-          <span class="font">搜索</span>
-        </router-link>
-      </el-col>
-      <el-col :span="5" class="font1">
-        <router-link to="/order" tag="div">
-          <span class="el-icon-tickets icon"></span>
-          <span class="font">订单</span>
-        </router-link>
-      </el-col>
-      <el-col :span="5" class="font1">
-        <router-link to="/profile" tag="div">
-          <span class="iconfont icon-wode icon"></span>
-          <span class="font">我的</span>
-        </router-link>
-      </el-col>
-    </el-row>
+  <div v-if="$route.name != 'selectAddress'">
+    <div v-if="$route.name != 'orderList'">
+      <el-row type="flex" class="row-bg" justify="space-around">
+        <el-col :span="5" class="font1">
+          <router-link to="/msite" tag="div">
+            <span class="el-icon-eleme icon1"></span>
+            <span class="font">外卖</span>
+          </router-link>
+        </el-col>
+        <el-col :span="5" class="font1">
+          <router-link to="/search" tag="div">
+            <span class="iconfont icon-luopancompass83 icon"></span>
+            <span class="font">搜索</span>
+          </router-link>
+        </el-col>
+        <el-col :span="5" class="font1">
+          <router-link to="/order" tag="div">
+            <span class="el-icon-tickets icon"></span>
+            <span class="font">订单</span>
+          </router-link>
+        </el-col>
+        <el-col :span="5" class="font1">
+          <router-link to="/profile" tag="div">
+            <span class="iconfont icon-wode icon"></span>
+            <span class="font">我的</span>
+          </router-link>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 

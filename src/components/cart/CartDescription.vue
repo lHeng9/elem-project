@@ -17,13 +17,7 @@
           <div class="des-rating">
             <span>评分</span>
             <div class="des-star">
-              <div class="des-star-star">
-                <i class="el-icon-star-on"></i>
-                <i class="el-icon-star-on"></i>
-                <i class="el-icon-star-on"></i>
-                <i class="el-icon-star-on"></i>
-                <i class="el-icon-star-on"></i>
-              </div>
+              <el-rate v-model="queryObj.rating" disabled text-color="#ff9900"></el-rate>
             </div>
             <span class="des-score">{{ queryObj.rating }}</span>
           </div>
@@ -46,7 +40,8 @@ export default {
   name: "CartDescription",
   data() {
     return {
-      queryObj: {}
+      queryObj: {},
+      value: queryObj.rating
     };
   },
   created() {
@@ -63,6 +58,7 @@ export default {
 
 <style scoped>
 .food-description {
+  margin-top: -1.2188rem;
   background: #fff;
 }
 .des-header {
@@ -123,10 +119,10 @@ i.el-icon-arrow-left {
   margin-right: 0.125rem;
 }
 .des-star {
-  position: relative;
-  top: 0.125rem;
-  width: 1.25rem;
-  height: 0.25rem;
+  /* position: relative; */
+  /* top: 0.125rem; */
+  /* width: 1.25rem; */
+  /* height: 0.25rem; */
 }
 .des-star-star {
   position: absolute;
@@ -175,5 +171,8 @@ i.el-icon-star-on {
 }
 .des-good {
   left: 2.5rem;
+}
+el-rate {
+  font-size: 0.3125rem;
 }
 </style>
