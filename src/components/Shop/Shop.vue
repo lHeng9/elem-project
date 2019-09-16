@@ -101,6 +101,7 @@ export default {
 .card {
   padding: 0.4375rem 0.25rem;
   border-bottom: 0.0313rem solid #cccccc;
+  background-color: #fff;
 }
 
 img {

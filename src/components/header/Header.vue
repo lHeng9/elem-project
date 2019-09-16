@@ -1,4 +1,5 @@
 <template>
+
   <div class="header" v-if="$route.name != 'cart'">
     <div>
       <span v-if="$route.name == 'home'">ele</span>
@@ -22,6 +23,7 @@
 
     <div v-if="!user">
       <span @click="login">登录</span> |
+
       <span>注册</span>
     </div>
     <div v-else>

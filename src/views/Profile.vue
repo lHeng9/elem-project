@@ -22,12 +22,12 @@
         <p>我的余额</p>
       </router-link>
 
-      <li>
+      <router-link to="/profile/benefit" tag="li">
         <p>
           <span style="color:#ff5f3e">3</span>个
         </p>
         <p>我的优惠</p>
-      </li>
+      </router-link>
       <router-link style="border:none" to="/profile/points" tag="li">
         <p>
           <span style="color:#6ac208">0</span>分
@@ -88,10 +88,10 @@
       </router-link>
 
       <router-link to="/download" tag="div">
-        <el-row class="sub" style="border:none">
+        <el-row class="sub last" style="border:none">
           <el-col :span="3">
             <span
-              class="iconfont icon-changyonglogo40 icon"
+              class="iconfont icon-changyonglogo40 icon icon5"
               :span="4"
               style="color:#3CABFF;font-size:0.9rem;margin-left:0.3rem;"
             ></span>
@@ -209,5 +209,9 @@ li > p > span {
   font-weight: bold;
   margin-right: 0.2rem;
   margin-top: 0.1rem;
+}
+
+.last {
+  line-height: 20px;
 }
 </style>
