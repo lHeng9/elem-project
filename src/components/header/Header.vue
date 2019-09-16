@@ -1,10 +1,9 @@
 <template>
   <div class="header">
-
     <i class="el-icon-arrow-left" @click="gotoBack()"></i>
     <div v-if="!user">
-      <span @click="login">登录</span> |
-
+      <span @click="login">登录</span>
+      |
       <span>注册</span>
     </div>
     <div v-else>
