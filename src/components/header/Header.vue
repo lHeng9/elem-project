@@ -7,6 +7,7 @@
         <i class="el-icon-arrow-left" @click="gotoBack()" v-else></i>
       </div>
 
+
       <div>
         <span v-if="$route.name == 'city'">城市</span>
         <span v-if="$route.name == 'msite'">商品</span>
@@ -30,15 +31,17 @@
         <span v-if="$route.name == 'benefit'">优惠信息</span>
       </div>
 
-      <div v-if="!user">
-        <span @click="login">登录</span> |
-        <span>注册</span>
-      </div>
-      <div v-else>
-        <span>
-          <i class="el-icon-user"></i>
-        </span>
-      </div>
+
+    <div v-if="!user">
+      <span @click="login">登录</span> |
+
+      <span>注册</span>
+    </div>
+    <div v-else>
+      <span>
+        <i class="el-icon-user"></i>
+      </span>
+
     </div>
   </div>
 </template>
